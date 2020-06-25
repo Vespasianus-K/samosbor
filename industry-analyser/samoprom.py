@@ -4,8 +4,7 @@
 # Гигацикл начала отсчёта.
 CYCLE_START = 1000
 # До какого возраста исследовать:
-AGE_END = 25
-
+AGE_END = 75
 # Численность населения в гигацикл начала отсчёта:
 POPULATION = 15000000
 # Уровень рождаемости (например: 0.05 значит 5%
@@ -23,11 +22,11 @@ GDP_GROWTH = 0.03
 GDP_ARMY = 0.2
 
 # Компонент Мейкхама, независимый от возраста риск:
-COMPONENT_A = 0.03
+COMPONENT_A = 0.003
 # Коэффициент b:
 COEFFICIENT_B = 0.000350
 # Коэффициент c:
-COEFFICIENT_C = 1.08
+COEFFICIENT_C = 0.75
 
 # Распределение полов.
 MALE_NAME = 'Мужчины'
@@ -39,7 +38,7 @@ FEMALE_PERCENT = 0.4
 prof_percent = 0.5
 # Профессиональный риск, изменение компонента Мейкхама:
 # (0.4 = 40% риск смерти каждый гигацикл)
-prof_hazard = 0.4
+prof_hazard = 0.05
 # Ликвидаторы обоих полов? 0 - нет; 1 - да
 prof_male_switch = 1
 prof_female_switch = 1
@@ -70,7 +69,7 @@ dict_troops_types = {
         # Огневая поддержка:
         'ОП':0.15,
         # Ополченцы:
-        'Ополчение':0.2,
+        'Ополчения':0.2,
         # Инженерные войска:
         'ИВ':0.15,
         }
@@ -113,7 +112,7 @@ dict_gsl = {
     "gsl_name":"Магазинные винтовки",
     "gsl_name_comment":"Стреляют медленно, но далеко и точно более мощным патроном.",
     "gsl_troops_type":"ПЛ",
-    "gsl_cost":1750,
+    "gsl_cost":1500,
     "gsl_cost_currency":"грамм концентрата",
     "gsl_cost_maintenance":0.025,
     "gsl_budget":0.0075,
@@ -127,7 +126,7 @@ dict_gsl = {
     "gsl_c":0.88,
     "gsl_ammo_1_name":"Патроны 7.62х54",
     "gsl_ammo_1_capacity":5,
-    "gsl_ammo_1_expense":3000,
+    "gsl_ammo_1_expense":1250,
     }
 metadict_gsl[dict_gsl_key] = dict_gsl
 
@@ -136,7 +135,7 @@ dict_gsl = {
     "gsl_name":"Ручные пулемёты",
     "gsl_name_comment":"Основное оружие поддержки. Стреляет далеко и точно, но о надёжности лучше забыть.",
     "gsl_troops_type":"ПЛ",
-    "gsl_cost":4500,
+    "gsl_cost":4000,
     "gsl_cost_currency":"грамм концентрата",
     "gsl_cost_maintenance":0.05,
     "gsl_budget":0.0125,
@@ -162,7 +161,7 @@ dict_gsl = {
     "gsl_cost":7200,
     "gsl_cost_currency":"грамм концентрата",
     "gsl_cost_maintenance":0.1,
-    "gsl_budget":0.0075,
+    "gsl_budget":0.007,
     "gsl_name_new":"Ранцевые огнемёты Изийского модернизированные",
     "gsl_name_mid":"Ранцевые огнемёты Изийского РОИ-2",
     "gsl_name_old":"Стационарные огнемёты (под списание)",
@@ -179,10 +178,33 @@ metadict_gsl[dict_gsl_key] = dict_gsl
 
 dict_gsl_key = dict_gsl_key + 1
 dict_gsl = {
+    "gsl_name":"Казнозарядные винтовки",
+    "gsl_name_comment":"Эта конструкция раз в 30 старше её пользователей. Низкая скорострельность компенсируется крупным калибром.",
+    "gsl_troops_type":"Ополчения",
+    "gsl_cost":1200,
+    "gsl_cost_currency":"грамм концентрата",
+    "gsl_cost_maintenance":0.04,
+    "gsl_budget":0.0045,
+    "gsl_name_new":"Казнозарядные винтовки Бердана-Красного",
+    "gsl_name_mid":"Казнозарядные винтовки Бердана (со складов)",
+    "gsl_name_old":"Казнозарядные винтовки(под списание)",
+    "gsl_age_mid":7,
+    "gsl_age_old":40,
+    "gsl_a":0.07,
+    "gsl_b":0.045,
+    "gsl_c":1.4,
+    "gsl_ammo_1_name":"Патроны 10.75х58",
+    "gsl_ammo_1_capacity":1,
+    "gsl_ammo_1_expense":1800,
+    }
+metadict_gsl[dict_gsl_key] = dict_gsl
+
+dict_gsl_key = dict_gsl_key + 1
+dict_gsl = {
     "gsl_name":"Грабли ликвидаторские",
     "gsl_name_comment":"Символ ликвидаторов. Просты в использовании и всегда под рукой.",
     "gsl_troops_type":"ПЛ",
-    "gsl_cost":550,
+    "gsl_cost":500,
     "gsl_cost_currency":"грамм концентрата",
     "gsl_cost_maintenance":0.005,
     "gsl_budget":0.05,
@@ -208,7 +230,7 @@ dict_gsl = {
     "gsl_cost":0.6,
     "gsl_cost_currency":"грамм концентрата",
     "gsl_cost_maintenance":0.02,
-    "gsl_budget":0.035,
+    "gsl_budget":0.03,
     "gsl_name_new":"Патроны 5.45х39 новые",
     "gsl_name_mid":"Патроны 5.45х39 с запасных складов",
     "gsl_name_old":"Патроны 5.45х39 под списание",
@@ -256,6 +278,47 @@ dict_gsl = {
     "gsl_b":0.009,
     "gsl_c":0.9,
     }
+metadict_gsl[dict_gsl_key] = dict_gsl
+
+dict_gsl_key = dict_gsl_key + 1
+dict_gsl = {
+    "gsl_name":"Патроны 7.62х54",
+    "gsl_name_comment":'Патроны трёхлинейного калибра. Дульная энергия достигает 2300 Дж.',
+    "gsl_troops_type":"ВПК",
+    "gsl_cost":1,
+    "gsl_cost_currency":"грамм концентрата",
+    "gsl_budget":0.005,
+    "gsl_name_new":"Патроны 7.62х54, новые",
+    "gsl_name_mid":"Патроны 7.62х54 со складов",
+    "gsl_name_old":"Патроны 7.62х54, списанные",
+    "gsl_age_mid":3,
+    "gsl_age_old":8,
+    "gsl_a":0.15,
+    "gsl_b":0.009,
+    "gsl_c":0.9,
+    }
+metadict_gsl[dict_gsl_key] = dict_gsl
+
+dict_gsl_key = dict_gsl_key + 1
+dict_gsl = {
+    "gsl_name":"Патроны 10.75х58",
+    "gsl_name_comment":"Пробивает всё насквозь. Дульная энергия достигает 3500 Дж.",
+    "gsl_troops_type":"ВПК",
+    "gsl_cost":0.75,
+    "gsl_cost_currency":"грамм концентрата",
+    "gsl_cost_maintenance":0.1,
+    "gsl_budget":0.005,
+    "gsl_name_new":"Патроны 10.75х58, новые",
+    "gsl_name_mid":"Патроны 10.75х58 со складов",
+    "gsl_name_old":"Патроны 10.75х58, списанные",
+    "gsl_age_mid":3,
+    "gsl_age_old":8,
+    "gsl_a":0.125,
+    "gsl_b":0.035,
+    "gsl_c":1.01,
+    }
+metadict_gsl[dict_gsl_key] = dict_gsl
+
 metadict_gsl[dict_gsl_key] = dict_gsl
 #-------------------------------------------------------------------------
 # Внутренние переменные.
@@ -504,12 +567,12 @@ for meta_key in sorted(metadict.keys(), reverse=True):
         print(prof_name_retiree, metadict[meta_key][prof_name_retiree])
     # Вывод данных о вооружении:
     for gsl_key in sorted(metadict_gsl.keys()):
-        # Отмена вывода, если число машинок по нулям.
+        # Отмена вывода, если всё по нулям.
         if (metadict_equipment_alive[meta_key][metadict_gsl[gsl_key]['gsl_name']] != 0):
             if (metadict[meta_key]['age_real'] < metadict_gsl[gsl_key]['gsl_age_mid']):
                 print(metadict_gsl[gsl_key]['gsl_name_new'],
                         ' (Создано: ',
-                        # Обращение аж к двум словарям, одно вложено в другое.
+                        # Обращение к двум словарям, одно вложено в другое.
                         metadict_equipment_create[meta_key][metadict_gsl[gsl_key]['gsl_name']], ')',
                         ' Уцелело: ',
                         metadict_equipment_alive[meta_key][metadict_gsl[gsl_key]['gsl_name']], sep='')
@@ -528,7 +591,7 @@ for meta_key in sorted(metadict.keys(), reverse=True):
                         metadict_equipment_alive[meta_key][metadict_gsl[gsl_key]['gsl_name']], sep='')
     print('------------------------------------------------------------')
 
-# Подведение итогов:
+# Итоги:
 print('Ожидаемая численность:', POPULATION)
 population_alive = 0
 army_soldiers= 0
@@ -537,7 +600,7 @@ for meta_key in sorted(metadict.keys()):
     population_alive = population_alive + metadict[meta_key]['generation_alive']
     army_soldiers = army_soldiers + metadict[meta_key][prof_name_apprentice]
     army_reservists = army_reservists + metadict[meta_key][prof_name_expert]
-print('Численность населения:', population_alive)
+print('Численность населения гигастроения:', population_alive)
 print(prof_name_apprentice, 'и', prof_name_expert, 'по видам войск:')
 for troop_key in sorted(dict_troops_types.keys()):
     print('    ', troop_key, ' (', round(dict_troops_types[troop_key] * 100), '%) ',
@@ -552,7 +615,7 @@ print('------------------------------------------------------------')
 
 #-------------------------------------------------------------------------
 # И наконец, суммируем всё вооружение, вычисляем отношение единиц оружия к числу солдат,
-# потребность армии в боеприпасаха, а также суммарный бюджет на вооружения и бюджеты по видам войск:
+# потребность армии в боеприпасах, а также суммарный бюджет на вооружения и бюджеты по видам войск:
 
 budget_percent = 0
 budget_troops_percent = 0
